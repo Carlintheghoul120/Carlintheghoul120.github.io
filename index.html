@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Carlin Pauls</title>
     <style>
-        /body {
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -40,6 +40,10 @@
             display: none;
         }
     </style>
+     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+     <script type="text/javascript">
+         emailjs.init('psj8aSrUqFFb-KMpL'); // Replace 'YOUR_USER_ID' with your actual EmailJS User ID
+     </script>
 </head>
 <body>
     <header>
@@ -94,7 +98,7 @@ Collaborative development using Git repositories.</p>
 
         <button type="button" id="submit">Submit</button>
     </form>
-
+   
     <script>
         //Toggle 
      const toggleNavButton = document.getElementById('toggleNav');
@@ -102,34 +106,29 @@ Collaborative development using Git repositories.</p>
         toggleNavButton.addEventListener('click', () => {
             navMenu.classList.toggle('hidden');
         });
-        
-        document.getElementById('submit').addEventListener('click', function() {
+
+            // Send a POST request to your serverless function
+            document.getElementById('submit').addEventListener('click', function() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
 
-            // Prepare the data to send to the serverless function
-            const data = {
+            // Prepare the data to send to the EmailJS template
+            const templateParams = {
                 name,
                 email,
                 message,
             };
 
-            // Send a POST request to your serverless function
-            fetch('/sendEmail', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            })
-            .then(response => {
-                if (response.ok) {
+            // Send the email using EmailJS
+            emailjs.send('service_dj215h7', 'template_jkheuuw', templateParams)
+                .then(function(response) {
+                    console.log('Email sent successfully!', response);
                     alert('Thank you! Your message has been sent.');
-                } else {
+                }, function(error) {
+                    console.error('Email could not be sent:', error);
                     alert('Oops! Something went wrong. Please try again later.');
-                }
-            });
+                });
         });
     </script>
 </body>
