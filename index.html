@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Carlin Pauls</title>
+    <style>
+        /body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        nav {
+            background-color: #444;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav li {
+            display: inline;
+            margin: 10px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            margin: 20px 0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Website</h1>
+    </header>
+    <nav>
+        <button id="toggleNav">Toggle Navigation</button>
+        <ul class="hidden">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>About Us</h2>
+        <p>Carlin Pauls is a motivated Data Analyst Intern at BUI, driven by a passion for data-driven insights and a strong desire to excel in the field. 
+            With a genuine enthusiasm for learning and a deep commitment to applying his analytical skills,
+            Carlin is poised to contribute his talents and grow professionally as a valuable member of the team. 
+            His dedication to making data-driven decisions and his unwavering curiosity make him an asset to any data-focused project.</p>
+
+        <h2>Services</h2>
+        <h3>Web Development:</h3>
+
+<p>Proficiency in HTML, CSS, and JavaScript
+Strong understanding of front-end libraries and frameworks like React
+Backend development skills with Node.js, Python, or similar technologies
+Experience with responsive web design and cross-browser compatibility</p>
+<h3>Mobile Development:</h3>
+
+<p>Mobile app development using React Native or Ionic React
+Creating mobile user interfaces and components
+Mobile app testing and debugging</p>
+<h3>Version Control (Git):</h3>
+
+<p>Proficiency in Git for code version control
+Collaborative development using Git repositories.</p>
+
+        <h2>Contact Us</h2>
+        <p>Get in touch with us using the form below:</p>
+
+       
+    <form id="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+
+        <button type="button" id="submit">Submit</button>
+    </form>
+
+    <script>
+        //Toggle 
+     const toggleNavButton = document.getElementById('toggleNav');
+        const navMenu = document.querySelector('nav ul');
+        toggleNavButton.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+        
+        document.getElementById('submit').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Prepare the data to send to the serverless function
+            const data = {
+                name,
+                email,
+                message,
+            };
+
+            // Send a POST request to your serverless function
+            fetch('/sendEmail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Thank you! Your message has been sent.');
+                } else {
+                    alert('Oops! Something went wrong. Please try again later.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
