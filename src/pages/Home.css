@@ -1,104 +1,57 @@
-/* src/components/Home.css */
-/* Styles for the entire component */
-ion-content {
-    --ion-background-color: #f2f2f2; /* Background color */
+/* Home.css */
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+  color: white;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* Card Styling */
+.modern-card {
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+  background: var(--ion-card-background, #fff);
+}
+
+.modern-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-container {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact-card {
+  border-radius: 20px;
+  padding: 20px 0;
+}
+
+.contact-section {
+  margin-top: 40px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 1.8rem;
   }
-  
-  /* Header styling */
-  ion-header {
-    --ion-background-color: #333; /* Header background color */
-    color: #fff; /* Header text color */
-    text-align: center;
-    padding: 10px;
-  }
-  
-  /* Navigation button styling */
-  button#toggleNav {
-    background-color: #444; /* Navigation button background color */
-    color: #fff; /* Navigation button text color */
-  }
-  
-  /* List item styling */
-  ion-item {
-    --ion-background-color: transparent; /* List item background color */
-  }
-  
-  /* Label styling */
-  ion-label {
-    h2 {
-      font-size: 1.5rem; /* Title font size */
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1rem; /* Description font size */
-      margin-bottom: 1rem;
-    }
-  }
-  
-  /* Form input and textarea styling */
-  ion-input,
-  ion-textarea {
-    --ion-background-color: #fff; /* Input and textarea background color */
-    --ion-color: #333; /* Input and textarea text color */
-    --ion-padding-start: 16px; /* Padding on the left side of input fields */
-    --ion-padding-end: 16px; /* Padding on the right side of input fields */
-    border-radius: 8px; /* Rounded corners for input fields */
-  }
-  
-  /* Send email button styling */
-  ion-button {
-    --border-radius: 8px; /* Rounded corners for the button */
-    --ion-background-color: #333; /* Button background color */
-    --ion-text-color: #fff; /* Button text color */
-    margin-top: 1rem;
-    padding: 0.5rem;
-    font-size: 1.2rem;
-  }
-  
-/* Apply styles to the header */
-ion-header {
-    background-color: #1976D2; /* Change to your preferred background color */
-    color: #fff; /* Text color */
-  }
-  
-  /* Style the title text in the header */
-  ion-title {
-    font-size: 1.5rem; /* Adjust the font size as needed */
-  }
-  
-  /* Apply styles to the form and input elements */
-  ion-list {
-    padding: 20px; /* Add padding to the form container */
-  }
-  
-  /* Style the form labels and input fields */
-  ion-label {
-    font-size: 1rem; /* Adjust the font size as needed */
-  }
-  
-  ion-input,
-  ion-textarea {
-    border: 1px solid #ccc; /* Add a border to input fields */
-    border-radius: 4px; /* Add border radius */
-    margin-bottom: 10px; /* Add spacing between input fields */
-    font-size: 1rem; /* Adjust the font size as needed */
-  }
-  
-  /* Style the "Send Email" button */
-  ion-button {
-    margin-top: 20px; /* Add spacing above the button */
-    font-weight: bold; /* Make the text bold */
-    background-color: #1976D2; /* Button background color */
-    color: #fff; /* Button text color */
-  }
-  
-  /* Apply hover effect to the button */
-  ion-button:hover {
-    background-color: #1565C0; /* Adjust the hover background color */
-  }
-  
-  /* Define a class for fixed-width cards */
-.fixed-width-card {
-    width: 800px; /* Adjust the width as needed */
-  }
-  
+}
