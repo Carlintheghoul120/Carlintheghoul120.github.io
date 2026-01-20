@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   IonHeader,
   IonToolbar,
@@ -7,132 +7,102 @@ import {
   IonList,
   IonItem,
   IonLabel,
-  IonInput,
   IonButton,
-  IonTextarea,
   IonCard,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonCardContent,
+  IonIcon,
+  IonGrid,
+  IonRow,
+  IonCol
 } from '@ionic/react';
-import emailjs from 'emailjs-com';
-import './Home.css'; // Create a CSS file for your component's styles
+import { codeWorkingOutline, rocketOutline, layersOutline, mailOutline, hardwareChipOutline } from 'ionicons/icons';
+import './Home.css';
 
 const Home: React.FC = () => {
-  const [to_name, setToName] = useState('');
-  const [from_name, setFromName] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
-  const [content, setContent] = useState([
+  const email = "carlinpauls@gmail.com";
+
+  const expertise = [
     {
-      title: 'Introduction',
-      description:
-        "Carlin Pauls is a motivated Data Analyst Intern at BUI,driven by a passion for data-driven insights \n and a strong desire to excel in the field. With a genuine enthusiasm for learning and a deep commitment to applying his analytical skills, Carlin is poised to contribute his talents and grow professionally as a valuable member of the team. His dedication to making data-driven decisions and his unwavering curiosity make him an asset to any data-focused project.",
+      title: 'Architectural Vision',
+      subtitle: 'The Big Picture',
+      icon: layersOutline,
+      description: "As a Solutions Architect, I bridge the gap between complex business problems and technical execution. I design scalable, resilient ecosystems that align with long-term strategic goals."
     },
     {
-      title: 'Web Development',
-      description:
-        "Proficiency in HTML, CSS, and JavaScript Strong understanding of front-end libraries and frameworks like React Backend development skills with Node.js, Python, or similar technologies Experience with responsive web design and cross-browser compatibility",
-    },   {
-      title: 'Mobile Development',
-      description:
-        "Mobile app development using React Native or Ionic React Creating mobile user interfaces and components Mobile app testing and debugging",
-    },   {
-      title: 'Version Control (Git)',
-      description:
-        "Proficiency in Git for code version control Collaborative development using Git repositories.",
-    },   {
-      title: 'Hosting',
-      description:
-        "Provide hosting...",
+      title: 'Development Agnostic',
+      subtitle: 'Code to No-Code',
+      icon: codeWorkingOutline,
+      description: "I deliver results regardless of the medium. Whether it's high-performance plain code, rapid-prototyping with low-code/no-code platforms, or robust cross-platform mobile development using Ionic React."
     },
     {
-      title: 'Database administration',
-      description:
-        "Provide database adminstration on platform of choice except AWS",
+      title: 'Full-Stack Ecosystems',
+      subtitle: 'Web & Mobile',
+      icon: rocketOutline,
+      description: "Expertise in crafting unified experiences across web and mobile platforms, ensuring seamless data flow and consistent user journeys across all devices."
     },
-  ]);
-
-
-
-  const sendEmail = () => {
-    emailjs
-      .send(
-        'service_dj215h7', // Replace with your service ID
-        'template_jkheuuw', // Replace with your template ID
-        {
-          to_name,
-          from_name,
-          subject,
-          message,
-        },
-        'psj8aSrUqFFb-KMpL' // Replace with your user ID
-      )
-      .then(
-        (result) => {
-          console.log('Email sent successfully:', result.text);
-          // You can add your own success handling here
-        },
-        (error) => {
-          console.error('Email could not be sent:', error.text);
-          // You can handle errors here
-        }
-      );
-  };
+    {
+      title: 'Infrastructure & DevOps',
+      subtitle: 'Hosting & Databases',
+      icon: hardwareChipOutline,
+      description: "Managing the lifecycle of applications through Git version control, tailored hosting solutions, and database administration across diverse environments."
+    }
+  ];
 
   return (
     <>
-      <IonHeader>
-        <IonToolbar color="primary"> {/* Add a background color */}
-          <IonTitle>Welcome to My Website</IonTitle>
+      <IonHeader className="ion-no-border">
+        <IonToolbar color="dark">
+          <IonTitle>Carlin Pauls | Solutions Architect</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-      <IonList>
-  {content.map((section, index) => (
-    <IonItem key={index} className="fixed-width-card">
-      <IonCard>
-        <h2>{section.title}</h2>
-        <p>{section.description}</p>
-      </IonCard>
-    </IonItem>
-  ))}
-</IonList>
 
+      <IonContent fullscreen className="ion-padding">
+        <div className="hero-section">
+          <h1>Turning Complexity into Clarity.</h1>
+          <p>Strategic architecture for modern digital products.</p>
+        </div>
 
-        <IonList>
-          <IonItem>
-            <IonLabel position="floating">To:</IonLabel>
-            <IonInput
-              type="text"
-              value={to_name}
-              onIonChange={(e) => setToName(e.detail.value!)}
-            />
-          </IonItem>
-          <IonItem>
-            <IonLabel position="floating">From:</IonLabel>
-            <IonInput
-              type="text"
-              value={from_name}
-              onIonChange={(e) => setFromName(e.detail.value!)}
-            />
-          </IonItem>
-          <IonItem>
-            <IonLabel position="floating">Subject:</IonLabel>
-            <IonInput
-              type="text"
-              value={subject}
-              onIonChange={(e) => setSubject(e.detail.value!)}
-            />
-          </IonItem>
-          <IonItem>
-            <IonLabel position="floating">Message:</IonLabel>
-            <IonTextarea
-              value={message}
-              onIonChange={(e) => setMessage(e.detail.value!)}
-            />
-          </IonItem>
-        </IonList>
-        <IonButton expand="full" color="primary" onClick={sendEmail}>
-          Send Email
-        </IonButton>
+        <IonGrid>
+          <IonRow>
+            {expertise.map((item, index) => (
+              <IonCol sizeLg="6" sizeMd="6" sizeSm="12" key={index}>
+                <IonCard className="modern-card">
+                  <IonCardHeader>
+                    <div className="icon-container">
+                      <IonIcon icon={item.icon} color="primary" />
+                    </div>
+                    <IonCardSubtitle>{item.subtitle}</IonCardSubtitle>
+                    <IonCardTitle>{item.title}</IonCardTitle>
+                  </IonCardHeader>
+                  <IonCardContent>{item.description}</IonCardContent>
+                </IonCard>
+              </IonCol>
+            ))}
+          </IonRow>
+        </IonGrid>
+
+        <section className="contact-section ion-padding">
+          <IonCard color="primary" className="contact-card">
+            <IonCardHeader>
+              <IonCardTitle className="ion-text-center">Start a Conversation</IonCardTitle>
+            </IonCardHeader>
+            <IonCardContent className="ion-text-center">
+              <p>Ready to build? I am available for architectural consulting and full-stack development projects.</p>
+              <IonButton 
+                fill="light" 
+                shape="round" 
+                href={`mailto:${email}?subject=Project Inquiry`}
+                className="ion-margin-top"
+              >
+                <IonIcon slot="start" icon={mailOutline} />
+                {email}
+              </IonButton>
+            </IonCardContent>
+          </IonCard>
+        </section>
       </IonContent>
     </>
   );
