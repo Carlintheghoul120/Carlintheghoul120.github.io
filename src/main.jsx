@@ -49,6 +49,16 @@ const projects = [
     architecture: "IaC → Network → Compute → Data → Identity → Observability",
     github: "https://github.com/CarlinTheGhoul120/azure-infrastructure-lab",
   },
+  {
+    number: "04",
+    type: "FULL-STACK / BACKEND",
+    title: "Signage Ops Platform",
+    description:
+      "A Supabase-backed operations platform for a sign shop ready for mobile app deployment: material inventory, bills of materials, project task boards, and quote generation with PDF and email.",
+    stack: ["Supabase", "PostgreSQL", "Edge Functions", "React", "TypeScript"],
+    architecture: "React → Supabase (RLS + RPC) → Edge Functions → Storage",
+    github: "https://github.com/CarlinTheGhoul120/signage-ops-platform",
+  },
 ];
 
 const capabilities = [
@@ -68,6 +78,11 @@ const capabilities = [
     text: "Provisioning repeatable environments with Terraform and Bicep instead of manual configuration.",
   },
   {
+    icon: Database,
+    title: "Data & Backend",
+    text: "Modelling data, enforcing rules in the database, and choosing serverless functions only where they earn their place. Certified Fabric Data Engineer and Data Analyst.",
+  },
+  {
     icon: Zap,
     title: "DevOps & CI/CD",
     text: "Automating testing, infrastructure validation, and application deployments.",
@@ -85,12 +100,13 @@ const capabilities = [
 ];
 
 const technologies = {
-  Cloud: ["Azure", "Azure Functions", "Container Apps", "Static Web Apps", "API Management"],
-  Languages: ["Python", "TypeScript", "SQL"],
+  Cloud: ["Azure", "Azure Functions", "Container Apps", "Static Web Apps", "Certified Azure Solutions Architect Expert", "Certified Azure Developer Associate", "Certified Azure DevOps Engineer Expert"],
+  Languages: ["Python", "TypeScript", "SQL", "Bicep", "Terraform"],
   Frontend: ["React", "Ionic React", "Vite"],
+  "Data & Backend": ["Supabase", "PostgreSQL", "Edge Functions", "Deno"],
   Infrastructure: ["Terraform", "Bicep", "Docker"],
   DevOps: ["GitHub Actions", "Azure DevOps", "CI/CD"],
-  Security: ["Key Vault", "Managed Identity", "Private Endpoints"],
+  Security: ["Key Vault", "Managed Identity", "Private Endpoints", "Row-Level Security"],
 };
 
 function App() {
@@ -108,7 +124,7 @@ function App() {
       <header className="nav">
         <button className="brand" onClick={() => scrollTo("top")}>
           <span className="brand-mark">&lt;/&gt;</span>
-          <span>CARLIN<span className="muted">.DEV</span></span>
+          <span>DeployRight<span className="muted">.DEV</span></span>
         </button>
 
         <nav className={menuOpen ? "nav-links open" : "nav-links"}>
