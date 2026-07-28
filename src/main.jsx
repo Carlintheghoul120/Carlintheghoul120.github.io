@@ -145,7 +145,7 @@ function App() {
       <main id="top">
         <section className="hero section">
           <div className="hero-copy">
-            <div className="eyebrow"><span className="status-dot" /> CLOUD SOLUTIONS ENGINEER</div>
+            <div className="eyebrow"><span className="status-dot" /> CLOUD SOLUTIONS ENGINEER | FULL STACK</div>
             <h1>I build systems<br /><span>from the ground up.</span></h1>
             <p className="hero-text">
               I design and build complete cloud-native solutions — from architecture and infrastructure to APIs, applications, deployment, and operations.
