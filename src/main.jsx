@@ -30,7 +30,7 @@ import "./styles.css";
 */
 
 const GOOGLE_APPS_SCRIPT_URL =
-  "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+  "https://script.google.com/macros/s/AKfycbyZd4eyR4cAQ158IvgrruWGukgPh56dzzrVUdFYw03sptqchOLSlz4F63w7cDF6xcHt/exec";
 
 const WHATSAPP_NUMBER = "27682859727";
 const PERSONAL_EMAIL = "carlinpauls@gmail.com";
