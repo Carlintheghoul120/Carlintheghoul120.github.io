@@ -124,7 +124,7 @@ function App() {
       <header className="nav">
         <button className="brand" onClick={() => scrollTo("top")}>
           <span className="brand-mark">&lt;/&gt;</span>
-          <span>DeployRight<span className="muted">.DEV</span></span>
+          <span>NILRAC<span className="muted">.DEV</span></span>
         </button>
 
         <nav className={menuOpen ? "nav-links open" : "nav-links"}>
