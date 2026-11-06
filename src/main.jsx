@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BrandStudio from "./BrandStudio";
 import { createRoot } from "react-dom/client";
 import {
   ArrowUpRight,
@@ -853,4 +854,5 @@ function App() {
   );
 }
 
-createRoot(document.getElementById("root")).render(<App />);
+const showBrandStudio = new URLSearchParams(window.location.search).get("studio") === "1";
+createRoot(document.getElementById("root")).render(showBrandStudio ? <BrandStudio /> : <App />);
